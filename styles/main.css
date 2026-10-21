@@ -36,9 +36,11 @@ body { margin: 0; }
 .cell.double-bottom { border-bottom: 3px double #1769aa; }
 .cell.given { color: #202124; font-weight: 700; }
 .cell.entry { color: #1769aa; }
+.cell.revealed:not(.given) { color: #8a3d8f; font-weight: 700; }
 .cell.selected { background: #dcecff; }
 .app > #new-game { margin: 0 0 1rem; padding: .5rem 1rem; font: inherit; cursor: pointer; }
 .app > #hint { margin: 0 0 1rem .4rem; padding: .5rem 1rem; font: inherit; cursor: pointer; }
+.app > #give-up { margin: 0 0 1rem .4rem; padding: .5rem 1rem; font: inherit; cursor: pointer; }
 .app > #new-game:disabled,
 .app > #hint:disabled { cursor: wait; opacity: .65; }
 .controls { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; }

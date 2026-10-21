@@ -19,6 +19,7 @@ function render() {
     cell.className = [
       "cell",
       game.givens[index] ? "given" : value ? "entry" : "",
+      game.revealed && !game.givens[index] ? "revealed" : "",
       game.selected === index ? "selected" : "",
       ...edgeClasses,
     ].filter(Boolean).join(" ");
@@ -56,7 +57,7 @@ function newGame() {
 bindInput(() => game, render);
 document.querySelector("#new-game").addEventListener("click", newGame);
 document.querySelector("#hint").addEventListener("click", () => {
-  if (!game) return;
+  if (!game || game.revealed) return;
 
   let index = game.selected;
   if (index === null) {
@@ -76,6 +77,13 @@ document.querySelector("#hint").addEventListener("click", () => {
 
   game.cells[index] = game.solution[index];
   statusElement.textContent = "ヒントを表示しました。";
+  render();
+});
+document.querySelector("#give-up").addEventListener("click", () => {
+  if (!game) return;
+  game.cells = [...game.solution];
+  game.revealed = true;
+  statusElement.textContent = "正解を表示しました。もう一度遊ぶときは新しい問題を押してください。";
   render();
 });
 newGame();

@@ -6,5 +6,6 @@ export function createInitialBoard(puzzle, solution, doubleEdges) {
     cells: [...puzzle],
     doubleEdges,
     selected: null,
+    revealed: false,
   };
 }
