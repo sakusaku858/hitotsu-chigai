@@ -1,0 +1,45 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #202124;
+  background: #f6f7f9;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+.app { width: min(100% - 2rem, 34rem); margin: 2rem auto; text-align: center; }
+.board {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, minmax(0, 1fr));
+  width: min(100%, 32rem);
+  aspect-ratio: 1;
+  margin: 1rem auto;
+  border: 2px solid #252a34;
+  background: white;
+}
+.cell {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid #c7cbd1;
+  font-size: clamp(1rem, 5vw, 1.8rem);
+  cursor: pointer;
+  user-select: none;
+}
+.cell:nth-child(3n) { border-right: 2px solid #252a34; }
+.cell:nth-child(9n) { border-right: 0; }
+.cell:nth-child(n + 19):nth-child(-n + 27),
+.cell:nth-child(n + 46):nth-child(-n + 54) { border-bottom: 2px solid #252a34; }
+.cell.double-right { border-right: 3px double #1769aa; }
+.cell.double-bottom { border-bottom: 3px double #1769aa; }
+.cell.given { color: #202124; font-weight: 700; }
+.cell.entry { color: #1769aa; }
+.cell.selected { background: #dcecff; }
+.app > #new-game { margin: 0 0 1rem; padding: .5rem 1rem; font: inherit; cursor: pointer; }
+.app > #hint { margin: 0 0 1rem .4rem; padding: .5rem 1rem; font: inherit; cursor: pointer; }
+.app > #new-game:disabled,
+.app > #hint:disabled { cursor: wait; opacity: .65; }
+.controls { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; }
+.controls button { min-width: 2.5rem; padding: .55rem .75rem; font: inherit; cursor: pointer; }
