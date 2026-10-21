@@ -32,8 +32,8 @@ body { margin: 0; }
 .cell:nth-child(9n) { border-right: 0; }
 .cell:nth-child(n + 19):nth-child(-n + 27),
 .cell:nth-child(n + 46):nth-child(-n + 54) { border-bottom: 2px solid #252a34; }
-.cell.double-right { border-right: 3px double #1769aa; }
-.cell.double-bottom { border-bottom: 3px double #1769aa; }
+.board .cell.double-right { border-right: 3px double #1769aa; }
+.board .cell.double-bottom { border-bottom: 3px double #1769aa; }
 .cell.given { color: #202124; font-weight: 700; }
 .cell.entry { color: #1769aa; }
 .cell.revealed:not(.given) { color: #8a3d8f; font-weight: 700; }
